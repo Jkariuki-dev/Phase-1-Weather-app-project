@@ -10,7 +10,8 @@
   <div class="wrapper">
     <h1 class="heading">Weather Hiking Today</h1>
     <header>
-      <input type="text" autocomplete="off" id="cityInput" placeholder="Search Location or City"/>
+      <input type="text" autocomplete="off" id="cityInput" class="search-box" placeholder=" search Location or City"/>
+      <button class="button" id="submit_search">search</button>
     </header>
     <main>
       <section class="location">
@@ -18,8 +19,9 @@
         <div class="date"></div>
       </section>
       <div class="current">
-        <div class="weather">Sunny</div>
-        <div class="hi-low">10°c / 36°c</div>
+        <div id="weather">Sunny</div>
+        <div id="temperature">0°C</div>
+        <div id="wind"></div>
       </div>
     </main>
   </div>
