@@ -18,14 +18,25 @@ async function getResults(query) {
     "&q=" +
     city +
     "&aqi=no";
+    let response = await fetch(searchUrl);
+    let data = await response.json();
+  
+    showResults(data);
+    return data;
 }
-const searchbox = document.querySelector('.search-box');
-searchbox.addEventListener('keypress', setQuery)
-
-function setQuery(event) {
-    if (event.keyCode == 10) {
-        getResults(searchbox.value);
-    }
+function showResults(data) {
+    //DISPLAY RESULTS
+    console.log(JSON.stringify(data.location));
+  
+    document.getElementById("city").innerHTML =
+      data.location.name + "\n" + data.location.region;
+    document.getElementById("weather").innerHTML = data.current.condition.text;
+  
+    document.getElementById("temprature").innerHTML = data.current.temp_c;
+    document.getElementById("wind").innerHTML = data.current.wind_kph;
+  
+    // city.innerText =data.location.name+"\n"+data.location.region
+  }
 }
 
 function getResults (query) {
