@@ -1,17 +1,23 @@
-let weather = {
-    apikey: "3a15d44658d4796b1f1187beffaf104e",
-    fetchWeather: function (cityInput) {
-      fetch(
-        "https://api.open-meteo.com/v1/forecast?" +
-          city +
-          "&units=metric&appid=" +
-          this.apikey
-      )
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => this.displayWeather(data));
-    },
+//
+
+document.getElementById("submit_search").addEventListener("click", displayDate);
+async function displayDate() {
+  let search = document.getElementById("cityInput").value;
+  console.log("search input " + search);
+  await getResults(search);
+}
+
+async function getResults(query) {
+  let city = query;
+  //api key
+  let apikey = "cdf5a999b6a94552a45125501242101";
+  //create search url
+  let searchUrl =
+    "http://api.weatherapi.com/v1/current.json?key=" +
+    apikey +
+    "&q=" +
+    city +
+    "&aqi=no";
 }
 const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery)
